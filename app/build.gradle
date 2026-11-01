@@ -1,0 +1,31 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.launcher'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.tvlauncher"
+        minSdk 23
+        targetSdk 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // Постоянный ключ: новые сборки ставятся поверх старых без удаления
+    signingConfigs {
+        debug {
+            storeFile rootProject.file('launcher.keystore')
+            storePassword 'android'
+            keyAlias 'launcher'
+            keyPassword 'android'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
